@@ -1,0 +1,14 @@
+
+.link {
+    font-size: 20px;
+    font-weight: bold;
+}
+.images{
+    height: 40px;
+}
+
+.header_fixed {
+    position: fixed;
+    width: 100%;
+    top:0px;
+}
