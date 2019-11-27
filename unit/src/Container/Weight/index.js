@@ -12,12 +12,12 @@ export default class Weight extends React.Component {
             from:'Gram',
             to:'Kilogram'
         };
-        this.takeinput = this.takeinput.bind(this);
+        this.putinput = this.putinput.bind(this);
         this.fromselect = this.fromselect.bind(this);
         this.toselect = this.toselect.bind(this);
         this.output = this.output.bind(this);
     }
-    takeinput(e) {
+    putinput(e) {
         let val = e.target.value;
         val=Number(val);
         this.setState({
@@ -80,7 +80,7 @@ export default class Weight extends React.Component {
                     <div className="row block">
                     <div className="col">
                         <div className="row">
-                            <input type="number" placeholder="from" value={this.state.input} onChange={this.takeinput} className="col-8"/>
+                            <input type="number" placeholder="from" value={this.state.input} onChange={this.putinput} className="col-8"/>
                             <p className="col-1 unit_color">{this.state.from}</p>
                         </div>
                         <select size="3" className="row select_block" onClick={this.fromselect}>

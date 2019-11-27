@@ -3,14 +3,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from '../../Component/Header';
 import '../style.css';
 
-export default class Length extends React.Component {
+export default class Temperature extends React.Component {
     constructor() {
         super();
         this.state={
             output: '',
             input: '',
-            from:'feet',
-            to:'meter'
+            from:'V',
+            to:'kV'
         };
         this.putinput = this.putinput.bind(this);
         this.fromselect = this.fromselect.bind(this);
@@ -26,55 +26,33 @@ export default class Length extends React.Component {
         this.output(val);
     }
     output(val) {
-        if(this.state.from === 'feet'){
-            if(this.state.to === 'kilometer') {
-                val = val/3280.84;
-            }
-            else if(this.state.to === 'meter') {
-                val = val/3.281;
-            }
-            else if(this.state.to === 'centimeter') {
-                val = val*30.48;
-            }
-           else;
-        }
-        else if(this.state.from === 'meter'){
-            if(this.state.to === 'kilometer') {
+        if(this.state.from === 'V'){
+            if(this.state.to === 'kV') {
                 val = val/1000;
             }
-            else if(this.state.to === 'feet') {
-                val = val*3.281;
-            }
-            else if(this.state.to === 'centimeter') {
-                val = val*100;
-            }
-           else;
-        }
-        else if(this.state.from === 'kilometer') {
-            if(this.state.to === 'meter') {
+            else if(this.state.to === 'mV') {
                 val = val*1000;
-            }
-            else if(this.state.to === 'feet') {
-                val = val*3280.84;
-            }
-            else if(this.state.to === 'centimeter') {
-                val = val*100000;
-            }
-           else;
-        }
-        else {
-            if(this.state.to === 'meter') {
-                val = val/100;
-            }
-            else if(this.state.to === 'feet') {
-                val = val/30.48;
-            }
-            else if(this.state.to === 'kilometer') {
-                val = val/100000;
             }
             else;
         }
-        
+        else if(this.state.from === 'kV') {
+            if(this.state.to === 'v') {
+                val = val*1000;
+            }
+            else if(this.state.to === 'mV') {
+                val = val*1000000;
+            }
+            else;
+        }
+        else {
+            if(this.state.to === 'kV') {
+                val = val*1000;
+            }
+            else if(this.state.to === 'V') {
+                val = val/1000;
+            }
+            else;
+        }
         this.setState({
             output: val
         });
@@ -103,25 +81,23 @@ export default class Length extends React.Component {
                     <div className="col">
                         <div className="row">
                             <input type="number" placeholder="from" value={this.state.input} onChange={this.putinput} className="col-8"/>
-                            <p className="col-1 textcolor">{this.state.from}</p>
+                            <p className="col-1 unit_color">{this.state.from}</p>
                         </div>
                         <select size="4" className="row select_block" onClick={this.fromselect}>
-                            <option value="feet">Feet</option>
-                            <option value="meter">Meter</option>
-                            <option value="kilometer">Kilometer</option>
-                            <option value="centimeter">Centimeter</option>
+                            <option value="V">V</option>
+                            <option value="kV">kV</option>
+                            <option value="mV">mV</option>
                         </select>
                     </div>
                     <div className="col">
                         <div className="row">
                             <input type="number" placeholder="to" value={this.state.output} className="col-8"/>
-                            <p className="col-1 textcolor">{this.state.to}</p>
+                            <p className="col-1 unit_color">{this.state.to}</p>
                         </div>
                         <select size="4" className="row select_block" onClick={this.toselect}>
-                            <option value="feet">Feet</option>
-                            <option value="meter">Meter</option>
-                            <option value="kilometer">Kilometer</option>
-                            <option value="centimeter">Centimeter</option>
+                            <option value="V">V</option>
+                            <option value="kV">kV</option>
+                            <option value="mV">mV</option>
                         </select>
                     </div>
                     </div>

@@ -16,6 +16,8 @@ class Header extends Component {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
                             <Link to="/" className="nav-link">Home</Link> 
+                            <Link to="/frequency" className="nav-link">Frequency</Link>
+                            <Link to="/voltage" className="nav-link">Voltage</Link>
                             <Link to="/length" className="nav-link">Length</Link>
                             <Link to="/temp" className="nav-link">Temperature</Link>
                             <Link to="/weight" className="nav-link">Weight</Link>
